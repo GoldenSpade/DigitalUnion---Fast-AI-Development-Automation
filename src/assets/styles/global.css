@@ -1,0 +1,26 @@
+/* CSS Variables - Цветовая схема и основные переменные */
+:root {
+  --primary-purple: #5966ff;
+  --accent-green: #d7ef41;
+  --accent-pink: #f284ee;
+  --dark-blue: #1f1f2e;
+  --light-gray: #ffffff;
+  --background-gradient: linear-gradient(135deg, #1f1f2e 0%, #2d1b69 50%, #1f1f2e 100%);
+}
+
+/* Reset и базовые стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  background: var(--background-gradient);
+  min-height: 100vh;
+  color: white;
+}
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;800&family=Manrope:wght@400;800&family=Jost:wght@400;500&family=Short+Stack&display=swap');
