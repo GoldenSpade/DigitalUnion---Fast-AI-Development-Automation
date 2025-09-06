@@ -124,14 +124,14 @@ export default {
 <style scoped>
 /* ===== HERO SECTION ===== */
 .hero-section {
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   text-align: center;
-  padding: clamp(40px, 6vh, 60px) 0 clamp(60px, 8vh, 100px);
+  padding: 0;
 }
 
 .hero-title {

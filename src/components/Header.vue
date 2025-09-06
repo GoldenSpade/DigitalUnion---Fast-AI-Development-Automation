@@ -1,6 +1,6 @@
 <template>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" :class="{ 'navbar-visible': isScrolled }">
     <div class="container">
       <a class="navbar-brand" href="#">
         <span style="color: var(--accent-pink);">DIGITAL</span>UNION
@@ -40,12 +40,47 @@
   </nav>
 </template>
 
+<script>
+import { ref, onMounted, onUnmounted } from 'vue'
+
+export default {
+  name: 'Header',
+  setup() {
+    const isScrolled = ref(false)
+    
+    const handleScroll = () => {
+      isScrolled.value = window.scrollY > 50
+    }
+    
+    onMounted(() => {
+      window.addEventListener('scroll', handleScroll)
+    })
+    
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll)
+    })
+    
+    return {
+      isScrolled
+    }
+  }
+}
+</script>
+
 <style scoped>
 /* ===== NAVBAR ===== */
 .navbar {
   height: 80px;
-  background: rgba(31, 31, 46, 0.35);
+  background: transparent;
+  backdrop-filter: none;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+}
+
+.navbar-visible {
+  background: rgba(31, 31, 46, 0.9);
   backdrop-filter: blur(10px);
+  transform: translateY(0);
 }
 
 .navbar-brand {

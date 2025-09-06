@@ -52,7 +52,7 @@ export default {
 .content-section {
   padding: 40px 0;
   background: rgba(255, 255, 255, 0.05);
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .content-section p {
