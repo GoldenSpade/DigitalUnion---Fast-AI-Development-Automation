@@ -1,6 +1,6 @@
 <template>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
     <div class="container">
       <a class="navbar-brand" href="#">
         <span style="color: var(--accent-pink);">DIGITAL</span>UNION
@@ -44,6 +44,8 @@
 /* ===== NAVBAR ===== */
 .navbar {
   height: 80px;
+  background: rgba(31, 31, 46, 0.35);
+  backdrop-filter: blur(10px);
 }
 
 .navbar-brand {

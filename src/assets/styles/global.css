@@ -1,3 +1,6 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;800&family=Manrope:wght@400;800&family=Jost:wght@400;500&family=Short+Stack&display=swap');
+
 /* CSS Variables - Цветовая схема и основные переменные */
 :root {
   --primary-purple: #5966ff;
@@ -20,7 +23,5 @@ body {
   background: var(--background-gradient);
   min-height: 100vh;
   color: white;
+  padding-top: 80px;
 }
-
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;800&family=Manrope:wght@400;800&family=Jost:wght@400;500&family=Short+Stack&display=swap');
