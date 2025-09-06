@@ -135,6 +135,16 @@ export default {
   overflow-x: hidden;
 }
 
+@media (max-width: 991px) {
+  .hero-section {
+    margin-top: 30px;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.7rem, 4vw, 3rem) !important;
+  }
+}
+
 .hero-title {
   font-family: "Manrope", sans-serif;
   font-weight: 800;

@@ -5,7 +5,7 @@
     
     <!-- Demo content section -->
     <section class="content-section">
-      <div class="container">
+      <div class="container-fluid px-3">
         <div class="row">
           <div class="col-12">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi corrupti soluta dolores unde officia eligendi, recusandae, totam amet non ullam dignissimos. Id, veritatis! Assumenda accusantium itaque sapiente veritatis molestiae repellendus?

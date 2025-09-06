@@ -1,7 +1,7 @@
 <template>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" :class="{ 'navbar-visible': isScrolled }">
-    <div class="container-fluid px-3">
+    <div class="container-fluid px-2">
       <a class="navbar-brand" href="#">
         <span style="color: var(--accent-pink);">DIGITAL</span>UNION
       </a>
@@ -66,16 +66,29 @@ export default {
       handleScroll()
     }
     
+    const handleClickOutside = (event) => {
+      const navbar = document.querySelector('.navbar-collapse')
+      const toggler = document.querySelector('.navbar-toggler')
+      
+      if (navbar && toggler && !navbar.contains(event.target) && !toggler.contains(event.target)) {
+        if (navbar.classList.contains('show')) {
+          toggler.click()
+        }
+      }
+    }
+    
     onMounted(() => {
       checkMobile()
       handleScroll()
       window.addEventListener('scroll', handleScroll)
       window.addEventListener('resize', handleResize)
+      document.addEventListener('click', handleClickOutside)
     })
     
     onUnmounted(() => {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleResize)
+      document.removeEventListener('click', handleClickOutside)
     })
     
     return {
@@ -109,7 +122,13 @@ export default {
 }
 
 .navbar-toggler:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-toggler:active {
+  box-shadow: none;
+  outline: none;
 }
 
 .navbar-toggler-icon {
@@ -157,6 +176,7 @@ export default {
   .btn-login, .btn-signup {
     width: 100%;
     text-align: center;
+    margin-left: 0 !important;
   }
 }
 
