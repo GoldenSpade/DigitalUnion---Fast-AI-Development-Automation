@@ -1,7 +1,7 @@
 <template>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" :class="{ 'navbar-visible': isScrolled }">
-    <div class="container">
+    <div class="container-fluid px-3">
       <a class="navbar-brand" href="#">
         <span style="color: var(--accent-pink);">DIGITAL</span>UNION
       </a>
@@ -47,21 +47,40 @@ export default {
   name: 'Header',
   setup() {
     const isScrolled = ref(false)
+    const isMobile = ref(false)
+    
+    const checkMobile = () => {
+      isMobile.value = window.innerWidth <= 768
+    }
     
     const handleScroll = () => {
-      isScrolled.value = window.scrollY > 50
+      if (isMobile.value) {
+        isScrolled.value = true // На мобильных всегда показываем навбар
+      } else {
+        isScrolled.value = window.scrollY > 50 // На десктопе только при скролле
+      }
+    }
+    
+    const handleResize = () => {
+      checkMobile()
+      handleScroll()
     }
     
     onMounted(() => {
+      checkMobile()
+      handleScroll()
       window.addEventListener('scroll', handleScroll)
+      window.addEventListener('resize', handleResize)
     })
     
     onUnmounted(() => {
       window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
     })
     
     return {
-      isScrolled
+      isScrolled,
+      isMobile
     }
   }
 }
@@ -81,6 +100,64 @@ export default {
   background: rgba(31, 31, 46, 0.9);
   backdrop-filter: blur(10px);
   transform: translateY(0);
+}
+
+/* Burger кнопка */
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 4px 8px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  width: 20px;
+  height: 20px;
+}
+
+/* Показываем burger только на маленьких экранах */
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+/* Фон для выпадающего меню на мобильных */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(31, 31, 46, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar-nav {
+    margin-bottom: 15px;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar-nav .nav-item:last-child .nav-link {
+    border-bottom: none;
+  }
+  
+  .d-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-login, .btn-signup {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .navbar-brand {
