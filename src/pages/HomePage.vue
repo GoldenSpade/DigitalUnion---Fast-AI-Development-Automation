@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Nav />
     <HeroSection />
     
     <!-- Demo content section -->
@@ -35,17 +35,9 @@
   </div>
 </template>
 
-<script>
-import Header from '../components/Header.vue'
+<script setup>
+import Nav from '../components/Nav.vue'
 import HeroSection from '../components/HeroSection.vue'
-
-export default {
-  name: 'HomePage',
-  components: {
-    Header,
-    HeroSection
-  }
-}
 </script>
 
 <style scoped>
