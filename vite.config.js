@@ -20,6 +20,7 @@ export default defineConfig(({ command, mode }) => {
 
   return {
     plugins,
+    // base: '/DigitalUnion---Fast-AI-Development-Automation/',
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
