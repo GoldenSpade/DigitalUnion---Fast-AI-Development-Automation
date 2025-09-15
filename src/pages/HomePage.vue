@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <HeroSection />
+    <Header />
     
     <!-- Demo content section -->
     <section class="content-section">
@@ -37,7 +37,7 @@
 
 <script setup>
 import Nav from '../components/Nav.vue'
-import HeroSection from '../components/HeroSection.vue'
+import Header from '../components/Header.vue'
 </script>
 
 <style scoped>
