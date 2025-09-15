@@ -49,76 +49,66 @@
   </section>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-export default {
-  name: 'HeroSection',
-  setup() {
-    const currentText = ref('')
-    const showCursor = ref(true)
-    
-    const texts = [
-      'AI-Powered Solutions',
-      'Smart Automation',
-      'Digital Innovation',
-      'AI Technology'
-    ]
-    
-    let currentTextIndex = 0
-    let currentCharIndex = 0
-    let isDeleting = false
-    let typewriterInterval = null
-    let cursorInterval = null
-    
-    const typeEffect = () => {
-      const text = texts[currentTextIndex]
-      
-      if (isDeleting) {
-        currentText.value = text.substring(0, currentCharIndex - 1)
-        currentCharIndex--
-      } else {
-        currentText.value = text.substring(0, currentCharIndex + 1)
-        currentCharIndex++
-      }
-      
-      let speed = isDeleting ? 80 : 120
-      speed += Math.random() * 100
-      
-      if (!isDeleting && currentCharIndex === text.length) {
-        speed = 2500
-        isDeleting = true
-      } else if (isDeleting && currentCharIndex === 0) {
-        isDeleting = false
-        currentTextIndex = (currentTextIndex + 1) % texts.length
-        speed = 500
-      }
-      
-      typewriterInterval = setTimeout(typeEffect, speed)
-    }
-    
-    const startCursorBlink = () => {
-      cursorInterval = setInterval(() => {
-        showCursor.value = !showCursor.value
-      }, 530)
-    }
-    
-    onMounted(() => {
-      typeEffect()
-      startCursorBlink()
-    })
-    
-    onUnmounted(() => {
-      if (typewriterInterval) clearTimeout(typewriterInterval)
-      if (cursorInterval) clearInterval(cursorInterval)
-    })
-    
-    return {
-      currentText,
-      showCursor
-    }
+const currentText = ref('')
+const showCursor = ref(true)
+
+const texts = [
+  'AI-Powered Solutions',
+  'Smart Automation',
+  'Digital Innovation',
+  'AI Technology'
+]
+
+let currentTextIndex = 0
+let currentCharIndex = 0
+let isDeleting = false
+let typewriterInterval = null
+let cursorInterval = null
+
+const typeEffect = () => {
+  const text = texts[currentTextIndex]
+
+  if (isDeleting) {
+    currentText.value = text.substring(0, currentCharIndex - 1)
+    currentCharIndex--
+  } else {
+    currentText.value = text.substring(0, currentCharIndex + 1)
+    currentCharIndex++
   }
+
+  let speed = isDeleting ? 80 : 120
+  speed += Math.random() * 100
+
+  if (!isDeleting && currentCharIndex === text.length) {
+    speed = 2500
+    isDeleting = true
+  } else if (isDeleting && currentCharIndex === 0) {
+    isDeleting = false
+    currentTextIndex = (currentTextIndex + 1) % texts.length
+    speed = 500
+  }
+
+  typewriterInterval = setTimeout(typeEffect, speed)
 }
+
+const startCursorBlink = () => {
+  cursorInterval = setInterval(() => {
+    showCursor.value = !showCursor.value
+  }, 530)
+}
+
+onMounted(() => {
+  typeEffect()
+  startCursorBlink()
+})
+
+onUnmounted(() => {
+  if (typewriterInterval) clearTimeout(typewriterInterval)
+  if (cursorInterval) clearInterval(cursorInterval)
+})
 </script>
 
 <style scoped>

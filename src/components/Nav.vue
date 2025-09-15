@@ -40,63 +40,53 @@
   </nav>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-export default {
-  name: 'Header',
-  setup() {
-    const isScrolled = ref(false)
-    const isMobile = ref(false)
-    
-    const checkMobile = () => {
-      isMobile.value = window.innerWidth <= 768
-    }
-    
-    const handleScroll = () => {
-      if (isMobile.value) {
-        isScrolled.value = true // На мобильных всегда показываем навбар
-      } else {
-        isScrolled.value = window.scrollY > 50 // На десктопе только при скролле
-      }
-    }
-    
-    const handleResize = () => {
-      checkMobile()
-      handleScroll()
-    }
-    
-    const handleClickOutside = (event) => {
-      const navbar = document.querySelector('.navbar-collapse')
-      const toggler = document.querySelector('.navbar-toggler')
-      
-      if (navbar && toggler && !navbar.contains(event.target) && !toggler.contains(event.target)) {
-        if (navbar.classList.contains('show')) {
-          toggler.click()
-        }
-      }
-    }
-    
-    onMounted(() => {
-      checkMobile()
-      handleScroll()
-      window.addEventListener('scroll', handleScroll)
-      window.addEventListener('resize', handleResize)
-      document.addEventListener('click', handleClickOutside)
-    })
-    
-    onUnmounted(() => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleResize)
-      document.removeEventListener('click', handleClickOutside)
-    })
-    
-    return {
-      isScrolled,
-      isMobile
+const isScrolled = ref(false)
+const isMobile = ref(false)
+
+const checkMobile = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+const handleScroll = () => {
+  if (isMobile.value) {
+    isScrolled.value = true // На мобильных всегда показываем навбар
+  } else {
+    isScrolled.value = window.scrollY > 50 // На десктопе только при скролле
+  }
+}
+
+const handleResize = () => {
+  checkMobile()
+  handleScroll()
+}
+
+const handleClickOutside = (event) => {
+  const navbar = document.querySelector('.navbar-collapse')
+  const toggler = document.querySelector('.navbar-toggler')
+
+  if (navbar && toggler && !navbar.contains(event.target) && !toggler.contains(event.target)) {
+    if (navbar.classList.contains('show')) {
+      toggler.click()
     }
   }
 }
+
+onMounted(() => {
+  checkMobile()
+  handleScroll()
+  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('resize', handleResize)
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', handleResize)
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <style scoped>
