@@ -1,13 +1,13 @@
 <template>
   <div>
     <Nav />
-    <Header />
+    <Header id="home" />
     
     <!-- Services Section -->
-    <section class="services-section">
+    <section id="services" class="services-section fade-in">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-center mb-5">
+          <div class="col-12 text-center mb-5 fade-in">
             <h2 class="section-title">
               Revolutionary AI Development.<br>
               <span class="highlight">Growth Beyond Limits.</span>
@@ -22,10 +22,10 @@
     </section>
 
     <!-- AI Process Section -->
-    <section class="process-section">
+    <section id="process" class="process-section">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6">
+          <div class="col-lg-6 slide-in-left">
             <h2 class="process-title">
               Introducing<br>
               The <span class="highlight-blue">AI-POWERED</span> Development Model
@@ -61,7 +61,7 @@
             </div>
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-lg-6 slide-in-right">
             <div class="process-diagram">
               <div class="ai-circle">
                 <div class="circle-content">
@@ -83,7 +83,7 @@
     </section>
 
     <!-- Global Platforms Section -->
-    <section class="platforms-section">
+    <section id="platforms" class="platforms-section fade-in">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center mb-5">
@@ -98,7 +98,7 @@
         <div class="row">
           <div class="col-12">
             <div class="platforms-grid">
-              <div class="platform-category">
+              <div class="platform-category scale-in">
                 <h4>AI PLATFORMS</h4>
                 <div class="platform-logos">
                   <span class="platform-logo">OpenAI</span>
@@ -110,7 +110,7 @@
                 </div>
               </div>
 
-              <div class="platform-category">
+              <div class="platform-category scale-in">
                 <h4>DEV TOOLS</h4>
                 <div class="platform-logos">
                   <span class="platform-logo">GitHub</span>
@@ -128,10 +128,10 @@
     </section>
 
     <!-- Case Studies Section -->
-    <section class="case-studies-section">
+    <section id="cases" class="case-studies-section">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-center mb-5">
+          <div class="col-12 text-center mb-5 fade-in">
             <h2 class="section-title">
               We've Helped <span class="highlight-blue">5,000+</span> Clients<br>
               <span class="highlight">Achieve Digital Excellence</span>
@@ -140,7 +140,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-6 mb-4">
+          <div class="col-lg-6 mb-4 slide-in-left">
             <div class="case-study-card">
               <div class="case-study-image">
                 <div class="case-preview">
@@ -172,7 +172,7 @@
             </div>
           </div>
 
-          <div class="col-lg-6 mb-4">
+          <div class="col-lg-6 mb-4 slide-in-right">
             <div class="case-study-card">
               <div class="case-study-image">
                 <div class="case-preview gaming">
@@ -208,7 +208,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <section id="testimonials" class="testimonials-section fade-in">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center mb-5">
@@ -220,7 +220,7 @@
 
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <div class="testimonial-card">
+            <div class="testimonial-card scale-in">
               <div class="testimonial-content">
                 <div class="testimonial-quote">
                   <span class="quote-icon">"</span>
@@ -248,10 +248,10 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="final-cta-section">
+    <section id="contact" class="final-cta-section">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6">
+          <div class="col-lg-6 slide-in-left">
             <div class="cta-image">
               <div class="cta-graphic">
                 <div class="cta-circle"></div>
@@ -259,7 +259,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 slide-in-right">
             <div class="cta-content">
               <h2>Ready To<br><span class="highlight-blue">Grow Your Brand?</span></h2>
               <p>Transform your business with AI-powered solutions. Join thousands of companies already leveraging our intelligent automation platform.</p>
@@ -275,6 +275,11 @@
 <script setup>
 import Nav from '../components/Nav.vue'
 import Header from '../components/Header.vue'
+import { useScrollAnimation } from '../composables/useScrollAnimation'
+import { useParallaxEffect } from '../composables/useParallaxEffect'
+
+useScrollAnimation()
+useParallaxEffect()
 </script>
 
 <style scoped>

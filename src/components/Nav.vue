@@ -18,22 +18,28 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#home" @click="scrollToSection">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Product</a>
+            <a class="nav-link" href="#services" @click="scrollToSection">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Service</a>
+            <a class="nav-link" href="#process" @click="scrollToSection">Process</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#platforms" @click="scrollToSection">Platforms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cases" @click="scrollToSection">Cases</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials" @click="scrollToSection">About</a>
           </li>
         </ul>
 
         <div class="d-flex">
-          <button class="btn btn-login">Login</button>
-          <button class="btn btn-signup">Sign up</button>
+          <button class="btn btn-login" @click="scrollToSection" href="#contact">Login</button>
+          <button class="btn btn-signup" @click="scrollToSection" href="#contact">Sign up</button>
         </div>
       </div>
     </div>
@@ -69,6 +75,29 @@ const handleClickOutside = (event) => {
 
   if (navbar && toggler && !navbar.contains(event.target) && !toggler.contains(event.target)) {
     if (navbar.classList.contains('show')) {
+      toggler.click()
+    }
+  }
+}
+
+const scrollToSection = (event) => {
+  event.preventDefault()
+  const targetId = event.currentTarget.getAttribute('href')
+  const targetElement = document.querySelector(targetId)
+
+  if (targetElement) {
+    const navHeight = 80
+    const targetPosition = targetElement.offsetTop - navHeight
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    })
+
+    // Close mobile menu if open
+    const navbar = document.querySelector('.navbar-collapse')
+    const toggler = document.querySelector('.navbar-toggler')
+    if (navbar && navbar.classList.contains('show')) {
       toggler.click()
     }
   }
