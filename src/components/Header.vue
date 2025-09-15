@@ -36,11 +36,11 @@
           <div class="mt-4">
             <button class="btn btn-demo">
               <img src="/images/header/header-play-ico.png" alt="Play" class="btn-icon">
-              Let's demo
+              Start Building
             </button>
             <button class="btn btn-voice">
-              <img src="/images/header/header-microphone-ico.png" alt="Microphone" class="btn-icon">
-              Voice Search
+              <img src="/images/header/header-microphone-ico.png" alt="AI" class="btn-icon">
+              AI Assistant
             </button>
           </div>
         </div>
@@ -56,10 +56,11 @@ const currentText = ref('')
 const showCursor = ref(true)
 
 const texts = [
-  'AI-Powered Solutions',
-  'Smart Automation',
-  'Digital Innovation',
-  'AI Technology'
+  'AI-Powered Development',
+  'Smart Automation Tools',
+  'Intelligent Web Solutions',
+  'AI-Driven Innovation',
+  'Automated Website Creation'
 ]
 
 let currentTextIndex = 0
