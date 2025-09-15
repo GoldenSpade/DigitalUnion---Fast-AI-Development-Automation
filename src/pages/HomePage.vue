@@ -281,7 +281,7 @@ import Header from '../components/Header.vue'
 /* ===== SERVICES SECTION ===== */
 .services-section {
   padding: 80px 0;
-  background: #1f1f2e;
+  background: var(--dark-secondary);
   text-align: center;
 }
 
@@ -299,11 +299,11 @@ import Header from '../components/Header.vue'
 }
 
 .highlight-blue {
-  color: #4285f4;
+  color: var(--blue-primary);
 }
 
 .highlight-yellow {
-  color: #f4b400;
+  color: var(--accent-green);
 }
 
 .section-subtitle {
@@ -318,8 +318,8 @@ import Header from '../components/Header.vue'
 .btn-contact {
   font-family: "Mulish", sans-serif;
   font-weight: 600;
-  background: var(--accent-pink);
-  color: #1f1f2e;
+  background: var(--blue-primary);
+  color: white;
   border: none;
   padding: 12px 30px;
   border-radius: 25px;
@@ -330,14 +330,14 @@ import Header from '../components/Header.vue'
 }
 
 .btn-contact:hover {
-  background: #e070d9;
+  background: var(--blue-accent);
   transform: translateY(-2px);
 }
 
 /* ===== PROCESS SECTION ===== */
 .process-section {
   padding: 100px 0;
-  background: #1a1a2e;
+  background: var(--dark-tertiary);
 }
 
 .process-title {
@@ -403,11 +403,11 @@ import Header from '../components/Header.vue'
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--purple-dark) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 20px 40px rgba(95, 108, 255, 0.3);
 }
 
 .circle-content {
@@ -438,7 +438,7 @@ import Header from '../components/Header.vue'
 .element {
   position: absolute;
   background: rgba(255, 255, 255, 0.9);
-  color: #1f1f2e;
+  color: var(--dark-primary);
   padding: 8px 16px;
   border-radius: 20px;
   font-family: "Mulish", sans-serif;
@@ -456,15 +456,15 @@ import Header from '../components/Header.vue'
 /* ===== PLATFORMS SECTION ===== */
 .platforms-section {
   padding: 80px 0;
-  background: #1f1f2e;
+  background: var(--dark-secondary);
 }
 
 .btn-learn {
   font-family: "Mulish", sans-serif;
   font-weight: 600;
   background: transparent;
-  color: var(--accent-green);
-  border: 1px solid var(--accent-green);
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
   padding: 12px 30px;
   border-radius: 25px;
   font-size: 0.9rem;
@@ -474,8 +474,8 @@ import Header from '../components/Header.vue'
 }
 
 .btn-learn:hover {
-  background: var(--accent-green);
-  color: #1f1f2e;
+  background: var(--cyan);
+  color: var(--dark-primary);
 }
 
 .platforms-grid {
@@ -582,7 +582,7 @@ import Header from '../components/Header.vue'
 /* ===== CASE STUDIES SECTION ===== */
 .case-studies-section {
   padding: 100px 0;
-  background: #1a1a2e;
+  background: var(--dark-tertiary);
 }
 
 .case-studies-section .section-title {
@@ -608,7 +608,7 @@ import Header from '../components/Header.vue'
 
 .case-study-image {
   height: 250px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--purple-dark) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -628,7 +628,7 @@ import Header from '../components/Header.vue'
 }
 
 .case-preview.gaming {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--purple-light) 100%);
   color: white;
 }
 
@@ -667,7 +667,7 @@ import Header from '../components/Header.vue'
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: #1f1f2e;
+  color: var(--dark-primary);
 }
 
 .case-preview.gaming .preview-content h4 {
@@ -719,7 +719,7 @@ import Header from '../components/Header.vue'
   font-family: "Manrope", sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
-  color: var(--accent-pink);
+  color: var(--cyan);
   margin-bottom: 0.5rem;
 }
 
@@ -734,7 +734,7 @@ import Header from '../components/Header.vue'
 /* ===== TESTIMONIALS SECTION ===== */
 .testimonials-section {
   padding: 100px 0;
-  background: #1f1f2e;
+  background: var(--dark-secondary);
 }
 
 .testimonials-section .section-title {
@@ -757,7 +757,7 @@ import Header from '../components/Header.vue'
 
 .quote-icon {
   font-size: 4rem;
-  color: var(--accent-pink);
+  color: var(--blue-primary);
   position: absolute;
   top: -20px;
   left: -10px;
@@ -811,7 +811,7 @@ import Header from '../components/Header.vue'
 /* ===== FINAL CTA SECTION ===== */
 .final-cta-section {
   padding: 100px 0;
-  background: #1f1f2e;
+  background: var(--dark-secondary);
   overflow: hidden;
 }
 
@@ -832,7 +832,7 @@ import Header from '../components/Header.vue'
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(45deg, var(--accent-pink), var(--accent-green));
+  background: linear-gradient(45deg, var(--blue-primary), var(--cyan));
   animation: rotate 10s linear infinite;
 }
 
@@ -872,8 +872,8 @@ import Header from '../components/Header.vue'
 .btn-cta {
   font-family: "Mulish", sans-serif;
   font-weight: 700;
-  background: var(--accent-green);
-  color: #1f1f2e;
+  background: var(--cyan);
+  color: var(--dark-primary);
   border: none;
   padding: 15px 40px;
   border-radius: 30px;
@@ -884,9 +884,9 @@ import Header from '../components/Header.vue'
 }
 
 .btn-cta:hover {
-  background: #c3d63a;
+  background: var(--blue-primary);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(212, 230, 59, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
 }
 
 /* ===== RESPONSIVE UPDATES ===== */

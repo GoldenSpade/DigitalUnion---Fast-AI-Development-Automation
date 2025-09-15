@@ -9,6 +9,19 @@
   --dark-blue: #1f1f2e;
   --light-gray: #ffffff;
   --background-gradient: linear-gradient(135deg, #1f1f2e 0%, #2d1b69 50%, #1f1f2e 100%);
+
+  /* Additional palette colors */
+  --dark-primary: #121416;
+  --dark-secondary: #191a2c;
+  --dark-tertiary: #1a1b2e;
+  --blue-primary: #0066ff;
+  --blue-secondary: #0015ff;
+  --blue-light: #5f6cff;
+  --blue-accent: #0016ff;
+  --cyan: #00a0d2;
+  --purple-dark: #8200d2;
+  --purple-light: #919aff;
+  --gray-light: #aff0e5;
 }
 
 /* Reset и базовые стили */
