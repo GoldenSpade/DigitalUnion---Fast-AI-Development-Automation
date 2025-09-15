@@ -1,6 +1,7 @@
 <template>
   <div>
     <Nav />
+    <ScrollIndicator :current-section="currentSection" />
     <Header id="home" />
     
     <!-- Services Section -->
@@ -275,11 +276,14 @@
 <script setup>
 import Nav from '../components/Nav.vue'
 import Header from '../components/Header.vue'
+import ScrollIndicator from '../components/ScrollIndicator.vue'
 import { useScrollAnimation } from '../composables/useScrollAnimation'
 import { useParallaxEffect } from '../composables/useParallaxEffect'
+import { useSnapScroll } from '../composables/useSnapScroll'
 
 useScrollAnimation()
 useParallaxEffect()
+const { currentSection } = useSnapScroll()
 </script>
 
 <style scoped>
