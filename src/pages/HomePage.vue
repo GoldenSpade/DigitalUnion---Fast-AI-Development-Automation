@@ -16,7 +16,7 @@
             <p class="section-subtitle">
               We help brands grow beyond borders. AI is a new regional marketing strategy that helps connect customers with existing sites across borders.
             </p>
-            <button class="btn btn-contact">CONTACT US</button>
+            <button class="btn btn-contact" @click="scrollToContact">CONTACT US</button>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@
               Powering Growth On<br>
               <span class="highlight-yellow">Top Global AI Platforms</span>
             </h2>
-            <button class="btn btn-learn">LEARN MORE</button>
+            <button class="btn btn-learn" @click="scrollToContact">LEARN MORE</button>
           </div>
         </div>
 
@@ -264,7 +264,7 @@
             <div class="cta-content">
               <h2>Ready To<br><span class="highlight-blue">Grow Your Brand?</span></h2>
               <p>Transform your business with AI-powered solutions. Join thousands of companies already leveraging our intelligent automation platform.</p>
-              <button class="btn btn-cta">GET STARTED</button>
+              <button class="btn btn-cta" @click="scrollToContact">GET STARTED</button>
             </div>
           </div>
         </div>
@@ -284,6 +284,18 @@ import { useSnapScroll } from '../composables/useSnapScroll'
 useScrollAnimation()
 useParallaxEffect()
 const { currentSection } = useSnapScroll()
+
+const scrollToContact = () => {
+  const targetElement = document.querySelector('#contact')
+  if (targetElement) {
+    const navHeight = 80
+    const targetPosition = targetElement.offsetTop - navHeight
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    })
+  }
+}
 </script>
 
 <style scoped>
@@ -312,7 +324,7 @@ const { currentSection } = useSnapScroll()
 }
 
 .highlight-yellow {
-  color: var(--accent-green);
+  color: var(--accent-cyan);
 }
 
 .section-subtitle {

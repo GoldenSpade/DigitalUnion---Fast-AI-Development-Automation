@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" :class="{ 'navbar-visible': isScrolled }">
     <div class="container-fluid px-2">
       <a class="navbar-brand" href="#">
-        <span style="color: var(--accent-pink);">DIGITAL</span>UNION
+        <span style="color: var(--accent-pink);">DIGITAL</span> UNION
       </a>
 
       <button 
@@ -38,8 +38,7 @@
         </ul>
 
         <div class="d-flex">
-          <button class="btn btn-login" @click="scrollToSection" href="#contact">Login</button>
-          <button class="btn btn-signup" @click="scrollToSection" href="#contact">Sign up</button>
+          <button class="btn btn-signup" @click="scrollToSection" href="#contact">Get Started</button>
         </div>
       </div>
     </div>
@@ -257,7 +256,7 @@ onUnmounted(() => {
 .btn-signup {
   font-family: "Mulish", sans-serif;
   font-weight: 600;
-  background: var(--accent-green);
+  background: var(--accent-cyan);
   color: #1f1f2e;
   border: none;
   padding: 8px 20px;
@@ -267,7 +266,8 @@ onUnmounted(() => {
 }
 
 .btn-signup:hover {
-  background: #c3d63a;
+  background: #00ccdd;
   color: #1f1f2e;
+  transform: translateY(-2px);
 }
 </style>

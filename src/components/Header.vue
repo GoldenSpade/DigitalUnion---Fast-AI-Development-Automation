@@ -34,11 +34,11 @@
       <div class="row">
         <div class="col-12">
           <div class="mt-4">
-            <button class="btn btn-demo">
+            <button class="btn btn-demo" @click="scrollToContact">
               <img src="/images/header/header-play-ico.png" alt="Play" class="btn-icon">
               Start Building
             </button>
-            <button class="btn btn-voice">
+            <button class="btn btn-voice" @click="scrollToContact">
               <img src="/images/header/header-microphone-ico.png" alt="AI" class="btn-icon">
               AI Assistant
             </button>
@@ -54,6 +54,18 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const currentText = ref('')
 const showCursor = ref(true)
+
+const scrollToContact = () => {
+  const targetElement = document.querySelector('#contact')
+  if (targetElement) {
+    const navHeight = 80
+    const targetPosition = targetElement.offsetTop - navHeight
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    })
+  }
+}
 
 const texts = [
   'AI-Powered Development',
@@ -248,10 +260,18 @@ onUnmounted(() => {
   transform: translateY(-2px);
 }
 
+.btn-demo:focus,
+.btn-demo:active {
+  background: var(--accent-pink) !important;
+  color: #1f1f2e;
+  outline: none;
+  box-shadow: none;
+}
+
 .btn-voice {
   font-family: "Mulish", sans-serif;
   font-weight: 400;
-  background: var(--accent-green);
+  background: var(--accent-cyan);
   color: #1f1f2e;
   border: none;
   padding: clamp(12px, 2vh, 15px) clamp(20px, 4vw, 30px);
@@ -265,9 +285,17 @@ onUnmounted(() => {
 }
 
 .btn-voice:hover {
-  background: #c3d63a;
+  background: #00ccdd;
   color: #1f1f2e;
   transform: translateY(-2px);
+}
+
+.btn-voice:focus,
+.btn-voice:active {
+  background: var(--accent-cyan) !important;
+  color: #1f1f2e;
+  outline: none;
+  box-shadow: none;
 }
 
 .btn-icon {
